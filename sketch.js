@@ -1,5 +1,6 @@
 const canvasSketch = require('canvas-sketch');
 const { lerp } = require('canvas-sketch-util/math');
+const random = require('canvas-sketch-util/random');
 
 const settings = {
   dimensions: [ 2048, 2048 ]
@@ -22,12 +23,13 @@ const sketch = () => {
     return points;
   }
   
-  const points = createGrid().filter(() => Math.random() > 0.6);
+  //random.setSeed(512);
+  const points = createGrid().filter(() => random.value() > 0.6);
   const margin = 400;
   console.log(points);
 
   return ({ context, width, height }) => {
-    context.fillStyle='white';
+    context.fillStyle='#283148';
     context.fillRect(0, 0 , width, height);
 
     points.map(([u,v])=>{
@@ -37,7 +39,7 @@ const sketch = () => {
         context.beginPath();
         context.arc(x, y, 5, Math.PI*2, false);
         
-        context.strokeStyle = 'black';
+        context.strokeStyle = '#913535';
         context.lineWidth = 10;
         context.stroke();
     })
