@@ -4,6 +4,7 @@
   "description": "",
   "main": "sketch.js",
   "scripts": {
+    "build": "canvas-sketch sketch.js --name index --dir docs --build --inline",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
